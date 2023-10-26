@@ -10,7 +10,7 @@ def run_trufflehog_and_correct_json(directory_path):
     results = {}
 
     for path in all_paths:
-        command = f"trufflehog filesystem {path} --json"
+        command = f"trufflehog filesystem {path} --json --concurrency=10"
         try:
             process = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             
